@@ -4,24 +4,25 @@
 </div>
 
 <div class="modal-body">
-  <div class="d-flex">
-    <p>
-        {{ vote.topicName }}
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <p class="mb-0">
+        <strong>Topic:</strong> {{ vote.topicName }}
     </p>
-    <button
-        class="btn btn-sm btn-primary"
+    <span
+        class="material-icons text-primary"
+        style="font-size: 32px; cursor: pointer;"
         (click)="openDescriptionModal()"
-    >
-        Description
-    </button>
+        title="Description"
+    >description</span>
   </div>
-  <div>
+
+  <div class="mb-2">
     # Voter: {{ totalVote }} 
   </div>
   <div *ngFor="let option of vote.options" class="card mb-3 shadow-sm">
     <div class="card-body d-flex align-items-center justify-content-between py-2 px-3 ">
       <div class="me-3" style="min-width: 150px;">
-        <h5 class="card-title mb-1">{{ option.optionName }}</h5>
+        <h6 class="card-title mb-1">{{ option.optionName }}</h6>
       </div>
       <ngb-progressbar 
         class="flex-grow-1"
