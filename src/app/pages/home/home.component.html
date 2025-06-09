@@ -1,1 +1,10 @@
-<p>home works!</p>
+<table>
+  <tr *ngFor="let vote of votes">
+    <td>{{ vote.id }}</td>
+    <td>{{ vote.topicName }}</td>
+    <td>
+      <button (click)="openModal(vote, 'vote')">Vote</button>
+      <button (click)="openModal(vote, 'report')">Report</button>
+    </td>
+  </tr>
+</table>
