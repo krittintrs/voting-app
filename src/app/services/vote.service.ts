@@ -23,4 +23,9 @@ export class VoteService {
   createVote(vote: CreateVoteRequest): Observable<any> {
     return this.http.post(this.apiUrl, vote);
   }
+
+  submitVote(voteId: number, optionId: number): Observable<any> {
+    const url = `${this.apiUrl}/${voteId}/options/${optionId}/vote`;
+    return this.http.post(url, {});
+  }
 }

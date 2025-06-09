@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VoteService } from 'src/app/services/vote.service';
 import { Vote } from 'src/app/models/vote.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VoteModalComponent } from 'src/app/modals/vote-modal/vote-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,10 @@ export class HomeComponent implements OnInit {
   votes: Vote[] = [];
   pagedVotes: Vote[] = [];
 
-  constructor(private voteService: VoteService) {}
+  constructor(
+    private voteService: VoteService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.voteService.getVotes().subscribe((data: Vote[]) => {
@@ -29,4 +34,9 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(vote: Vote, action: string): void {}
+  
+  openVoteModal(vote: Vote) {
+    const modalRef = this.modalService.open(VoteModalComponent);
+    modalRef.componentInstance.vote = vote;
+  }
 }
