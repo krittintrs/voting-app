@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateVoteComponent } from './pages/create-vote/create-vote.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateVoteComponent } from './pages/create-vote/create-vote.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
