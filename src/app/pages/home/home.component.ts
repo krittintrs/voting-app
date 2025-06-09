@@ -13,11 +13,10 @@ export class HomeComponent implements OnInit {
   votes: Vote[] = [];
   pagedVotes: Vote[] = [];
 
-
-  constructor(private VoteService: VoteService) {}
+  constructor(private voteService: VoteService) {}
 
   ngOnInit(): void {
-    this.VoteService.getVotes().subscribe((data: Vote[]) => {
+    this.voteService.getVotes().subscribe((data: Vote[]) => {
       this.votes = data;
       this.refreshVotes();
     });
