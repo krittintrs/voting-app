@@ -1,1 +1,43 @@
-<p>create-vote works!</p>
+<div class="container mt-4">
+  <h3>Create a New Vote</h3>
+
+  <form [formGroup]="voteForm" (ngSubmit)="submitVote()">
+    <!-- Topic Name -->
+    <div class="mb-3 position-relative">
+    <label class="form-label">Topic Name</label>
+    <div class="d-flex justify-content-between">
+        <input type="text" class="form-control" formControlName="topicName" />
+        <small class="text-muted position-absolute top-0 end-0 mt-1 me-2">
+        {{ voteForm.get('topicName')?.value?.length || 0 }}/{{ maxTopicName }}
+        </small>
+    </div>
+    </div>
+
+    <!-- Topic Description -->
+    <div class="mb-3 position-relative">
+    <label class="form-label">Topic Description</label>
+    <div class="d-flex justify-content-between">
+        <textarea class="form-control" formControlName="topicDescription" rows="3"></textarea>
+        <small class="text-muted position-absolute top-0 end-0 mt-1 me-2">
+        {{ voteForm.get('topicDescription')?.value?.length || 0 }}/{{ maxTopicDesc }}
+        </small>
+    </div>
+    </div>
+
+
+    <!-- Options -->
+    <div class="mb-3">
+      <label class="form-label">Options</label>
+      <div formArrayName="options">
+        <div *ngFor="let option of options.controls; let i = index" class="input-group mb-2">
+          <input type="text" class="form-control" [formControlName]="i" placeholder="Option {{ i + 1 }}" />
+          <button type="button" class="btn btn-outline-danger" (click)="removeOption(i)" *ngIf="options.length > 1">x</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary btn-sm" (click)="addOption()">+ Add Option</button>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-success" [disabled]="voteForm.invalid">Create Vote</button>
+  </form>
+</div>

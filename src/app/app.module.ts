@@ -8,19 +8,21 @@ import { HomeComponent } from './pages/home/home.component';
 import { CreateVoteComponent } from './pages/create-vote/create-vote.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     HomeComponent,
-    CreateVoteComponent
+    CreateVoteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
