@@ -3,6 +3,7 @@ import { VoteService } from 'src/app/services/vote.service';
 import { Vote } from 'src/app/models/vote.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VoteModalComponent } from 'src/app/modals/vote-modal/vote-modal.component';
+import { ReportModalComponent } from 'src/app/modals/report-modal/report-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,11 @@ export class HomeComponent implements OnInit {
   
   openVoteModal(vote: Vote) {
     const modalRef = this.modalService.open(VoteModalComponent);
+    modalRef.componentInstance.vote = vote;
+  }
+
+  openReportModal(vote: Vote) {
+    const modalRef = this.modalService.open(ReportModalComponent);
     modalRef.componentInstance.vote = vote;
   }
 }
