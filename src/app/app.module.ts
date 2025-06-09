@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { HomeComponent } from './page/home/home.component';
-import { CreateVoteComponent } from './page/create-vote/create-vote.component';
+import { TopBarComponent } from './shared/top-bar/top-bar.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CreateVoteComponent } from './pages/create-vote/create-vote.component';
 
 @NgModule({
   declarations: [
