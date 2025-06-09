@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VoteModalComponent } from './modals/vote-modal/vote-modal.component';
 import { ReportModalComponent } from './modals/report-modal/report-modal.component';
+import { VoteDescriptionModalComponent } from './modals/vote-description-modal/vote-description-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReportModalComponent } from './modals/report-modal/report-modal.compone
     HomeComponent,
     CreateVoteComponent,
     VoteModalComponent,
-    ReportModalComponent
+    ReportModalComponent,
+    VoteDescriptionModalComponent
   ],
   imports: [
     BrowserModule,
