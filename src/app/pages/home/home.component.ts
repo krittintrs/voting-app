@@ -39,10 +39,29 @@ export class HomeComponent implements OnInit {
   openVoteModal(vote: Vote) {
     const modalRef = this.modalService.open(VoteModalComponent);
     modalRef.componentInstance.vote = vote;
+
+    modalRef.result.then((result) => {
+      if (result === 'submitted') {
+        this.voteService.getVotes().subscribe((data: Vote[]) => {
+          this.votes = data;
+          this.refreshVotes();
+        });
+      }
+    }).catch((error) => {
+      console.log('Modal dismissed', error);
+    });
   }
+
 
   openReportModal(vote: Vote) {
     const modalRef = this.modalService.open(ReportModalComponent);
     modalRef.componentInstance.vote = vote;
   }
+
+  refreshVoteData() {
+    this.voteService.getVotes().subscribe((updatedVotes: Vote[])  => {
+      this.votes = updatedVotes;
+    });
+  }
+
 }
